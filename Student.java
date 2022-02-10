@@ -40,19 +40,18 @@ public class Student {
 
 		private int age;
 		private String gender;
-
-		// public String toString() {
-//		return " rollno: " + m_rollno + "name: " + m_name + ", age: " + m_age + ", gender: " + m_gender;
-		// }
 	}
 
 	public static void main(String[] args) {
+
 		System.out.println("\t\t\t\t Student Details");
 		System.out.println();
 		Scanner input = new Scanner(System.in);
 		System.out.print("Number of Student : ");
 		int num = (Integer.parseInt(input.nextLine()));
+
 		ArrayList<Students> stud = new ArrayList<Students>();
+
 		for (int i = 0; i < num; i++) {
 			Students std = new Students();
 			System.out.print("Rollno : ");
@@ -63,14 +62,15 @@ public class Student {
 			std.setAge(Integer.parseInt(input.nextLine()));
 			System.out.print("gender : ");
 			std.setGender(input.nextLine());
-
 			stud.add(std);
 			System.out.println("******** Individual details entered successfully ********");
 			System.out.println();
 		}
+
 		System.out.println("+---------+-----------+-----+----------+");
 		System.out.println("| Roll.no | Name      | Age | Gender   |");
 		System.out.println("+---------+-----------+-----+----------+");
+
 		for (int i = 0; i < stud.size(); i++) {
 			System.out.println("| " + stud.get(i).getRollno() + "      | " + stud.get(i).getName() + "        | "
 					+ stud.get(i).getAge() + "  |  " + stud.get(i).getGender() + "       |");
@@ -78,11 +78,14 @@ public class Student {
 		}
 
 		int menuChoice = 3;
+
 		do {
 			System.out.println("\t\t\tEnter a Student Details");
 			System.out.println("\t\t1. Add Student\t2. remove Students\t3. Exit");
 			System.out.println("Enter a choice: ");
+
 			menuChoice = input.nextInt();
+
 			if (menuChoice == 1) {
 				Students std = new Students();
 				System.out.print("Rollno : ");
@@ -95,7 +98,6 @@ public class Student {
 				System.out.print("gender : ");
 				input.nextLine();
 				std.setGender(input.nextLine());
-
 				stud.add(std);
 				System.out.println("********Individual details entered successfully********");
 				System.out.println();
@@ -103,6 +105,7 @@ public class Student {
 				System.out.println("| Roll.no | Name      | Age | Gender   |");
 				System.out.println("+---------+-----------+-----+----------+");
 				System.out.println();
+
 				for (int i = 0; i < stud.size(); i++) {
 					System.out.println("| " + stud.get(i).getRollno() + "      | " + stud.get(i).getName()
 							+ "        | " + stud.get(i).getAge() + "  |  " + stud.get(i).getGender() + "       |");
@@ -120,16 +123,15 @@ public class Student {
 				System.out.println("+---------+-----------+-----+----------+");
 				System.out.println("| Roll.no | Name      | Age | Gender   |");
 				System.out.println("+---------+-----------+-----+----------+");
+
 				for (int i = 0; i < stud.size(); i++) {
 					System.out.println("| " + stud.get(i).getRollno() + "      | " + stud.get(i).getName()
 							+ "        | " + stud.get(i).getAge() + "  |  " + stud.get(i).getGender() + "       |");
 					System.out.println("+---------+-----------+-----+----------+");
 
 				}
-
 			}
 
 		} while (menuChoice < 3);
-
 	}
 }
