@@ -141,5 +141,7 @@ public class Student {
 			}
 
 		} while (menuChoice < 3);
+		
+		System.out.println("Students details  are successfully uploaded....\nThank You..");
 	}
 }
