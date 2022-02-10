@@ -46,27 +46,30 @@ public class Student {
 
 		System.out.println("\t\t\t\t Student Details");
 		System.out.println();
+
 		Scanner input = new Scanner(System.in);
-		System.out.print("Number of Student : ");
-		int num = (Integer.parseInt(input.nextLine()));
 
 		ArrayList<Students> stud = new ArrayList<Students>();
-
-		for (int i = 0; i < num; i++) {
-			Students std = new Students();
-			System.out.print("Rollno : ");
-			std.setRollno(Integer.parseInt(input.nextLine()));
-			System.out.print("Name   : ");
-			std.setName(input.nextLine());
-			System.out.print("Age    : ");
-			std.setAge(Integer.parseInt(input.nextLine()));
-			System.out.print("gender : ");
-			std.setGender(input.nextLine());
-			stud.add(std);
-			System.out.println("******** Individual details entered successfully ********");
-			System.out.println();
+		try {
+			System.out.print("Number of Student : ");
+			int num = (Integer.parseInt(input.nextLine()));
+			for (int i = 0; i < num; i++) {
+				Students std = new Students();
+				System.out.print("Rollno : ");
+				std.setRollno(Integer.parseInt(input.nextLine()));
+				System.out.print("Name   : ");
+				std.setName(input.nextLine());
+				System.out.print("Age    : ");
+				std.setAge(Integer.parseInt(input.nextLine()));
+				System.out.print("gender : ");
+				std.setGender(input.nextLine());
+				stud.add(std);
+				System.out.println("******** Individual details entered successfully ********");
+				System.out.println();
+			}
+		} catch (NumberFormatException e) {
+			System.out.println("NumberFormatException occured");
 		}
-
 		System.out.println("+---------+-----------+-----+----------+");
 		System.out.println("| Roll.no | Name      | Age | Gender   |");
 		System.out.println("+---------+-----------+-----+----------+");
@@ -75,8 +78,8 @@ public class Student {
 			System.out.println("| " + stud.get(i).getRollno() + "      | " + stud.get(i).getName() + "        | "
 					+ stud.get(i).getAge() + "  |  " + stud.get(i).getGender() + "       |");
 			System.out.println("+---------+-----------+-----+----------+");
-		}
 
+		}
 		int menuChoice = 3;
 
 		do {
@@ -87,20 +90,24 @@ public class Student {
 			menuChoice = input.nextInt();
 
 			if (menuChoice == 1) {
-				Students std = new Students();
-				System.out.print("Rollno : ");
-				std.setRollno(input.nextInt());
-				System.out.print("Name   : ");
-				input.nextLine();
-				std.setName(input.nextLine());
-				System.out.print("Age    : ");
-				std.setAge(input.nextInt());
-				System.out.print("gender : ");
-				input.nextLine();
-				std.setGender(input.nextLine());
-				stud.add(std);
-				System.out.println("********Individual details entered successfully********");
-				System.out.println();
+				try {
+					Students std = new Students();
+					System.out.print("Rollno : ");
+					std.setRollno(input.nextInt());
+					System.out.print("Name   : ");
+					input.nextLine();
+					std.setName(input.nextLine());
+					System.out.print("Age    : ");
+					std.setAge(input.nextInt());
+					System.out.print("gender : ");
+					input.nextLine();
+					std.setGender(input.nextLine());
+					stud.add(std);
+					System.out.println("********Individual details entered successfully********");
+					System.out.println();
+				} catch (NumberFormatException e) {
+					System.out.println("NumberFormatException occured");
+				}
 				System.out.println("+---------+-----------+-----+----------+");
 				System.out.println("| Roll.no | Name      | Age | Gender   |");
 				System.out.println("+---------+-----------+-----+----------+");
@@ -111,6 +118,7 @@ public class Student {
 							+ "        | " + stud.get(i).getAge() + "  |  " + stud.get(i).getGender() + "       |");
 					System.out.println("+---------+-----------+-----+----------+");
 				}
+
 			} else if (menuChoice == 2) {
 				System.out.print("Enter rollno number of the Student do you want edit : ");
 				int Roll = input.nextInt();
