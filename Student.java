@@ -46,7 +46,7 @@ public class Student {
 		// }
 	}
 
-	public static void main (String[] args)  {
+	public static void main(String[] args) {
 		System.out.println("\t\t\t\t Student Details");
 		System.out.println();
 		Scanner input = new Scanner(System.in);
@@ -109,25 +109,27 @@ public class Student {
 							+ "           " + stud.get(i).getAge() + "      " + stud.get(i).getGender());
 					System.out.println("+---------+-----------+-----+----------+");
 				}
-			} 
-			else if (menuChoice == 2) {
-				System.out.println("Enter rollno number of the Student do you want edit");
-				int i =input.nextInt();
-				System.out.println("+---------+-----------+-----+----------+");
-				System.out.println("| Roll.no | Name      | Age | Gender   |");
-				System.out.println("+---------+-----------+-----+----------+");
-				stud.remove(i);
-				for (Students  s: stud) {
-					
-					System.out.println(" " + s.roll_no+ "         " + s.name
-							+ "           " + s.age + "      " + s.gender);
+			} else if (menuChoice == 2) {
+				try {
+					System.out.println("Enter rollno number of the Student do you want edit");
+					int i = input.nextInt();
 					System.out.println("+---------+-----------+-----+----------+");
+					System.out.println("| Roll.no | Name      | Age | Gender   |");
+					System.out.println("+---------+-----------+-----+----------+");
+					stud.remove(i);
+					for (Students s : stud) {
+
+						System.out.println(
+								" " + s.roll_no + "         " + s.name + "           " + s.age + "      " + s.gender);
+						System.out.println("+---------+-----------+-----+----------+");
+					}
+
+				} catch (IndexOutOfBoundsException e) {
+					System.out.println("Exception thrown  :" + e);
 				}
-				
-				System.out.println("\t\t1. Remove rollno\t2. remove Name\t3. Remove age\t4. Remove gender");
 			}
 
-		} while (menuChoice < 4);
+		} while (menuChoice < 3);
 
 	}
 }
