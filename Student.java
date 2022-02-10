@@ -63,6 +63,7 @@ public class Student {
 			std.setAge(Integer.parseInt(input.nextLine()));
 			System.out.print("gender : ");
 			std.setGender(input.nextLine());
+
 			stud.add(std);
 			System.out.println("******** Individual details entered successfully ********");
 			System.out.println();
@@ -71,8 +72,8 @@ public class Student {
 		System.out.println("| Roll.no | Name      | Age | Gender   |");
 		System.out.println("+---------+-----------+-----+----------+");
 		for (int i = 0; i < stud.size(); i++) {
-			System.out.println(" " + stud.get(i).getRollno() + "         " + stud.get(i).getName() + "           "
-					+ stud.get(i).getAge() + "      " + stud.get(i).getGender());
+			System.out.println("| " + stud.get(i).getRollno() + "      | " + stud.get(i).getName() + "        | "
+					+ stud.get(i).getAge() + "  |  " + stud.get(i).getGender() + "       |");
 			System.out.println("+---------+-----------+-----+----------+");
 		}
 
@@ -101,32 +102,31 @@ public class Student {
 				System.out.println("+---------+-----------+-----+----------+");
 				System.out.println("| Roll.no | Name      | Age | Gender   |");
 				System.out.println("+---------+-----------+-----+----------+");
-
-				System.out.println();
 				System.out.println();
 				for (int i = 0; i < stud.size(); i++) {
-					System.out.println(" " + stud.get(i).getRollno() + "         " + stud.get(i).getName()
-							+ "           " + stud.get(i).getAge() + "      " + stud.get(i).getGender());
+					System.out.println("| " + stud.get(i).getRollno() + "      | " + stud.get(i).getName()
+							+ "        | " + stud.get(i).getAge() + "  |  " + stud.get(i).getGender() + "       |");
 					System.out.println("+---------+-----------+-----+----------+");
 				}
 			} else if (menuChoice == 2) {
-				try {
-					System.out.println("Enter rollno number of the Student do you want edit");
-					int i = input.nextInt();
-					System.out.println("+---------+-----------+-----+----------+");
-					System.out.println("| Roll.no | Name      | Age | Gender   |");
-					System.out.println("+---------+-----------+-----+----------+");
-					stud.remove(i);
-					for (Students s : stud) {
-
-						System.out.println(
-								" " + s.roll_no + "         " + s.name + "           " + s.age + "      " + s.gender);
-						System.out.println("+---------+-----------+-----+----------+");
+				System.out.print("Enter rollno number of the Student do you want edit : ");
+				int Roll = input.nextInt();
+				input.nextLine();
+				for (int i = 0; i < stud.size(); i++) {
+					if (stud.get(i).getRollno() == Roll) {
+						stud.remove(i);
 					}
-
-				} catch (IndexOutOfBoundsException e) {
-					System.out.println("Exception thrown  :" + e);
 				}
+				System.out.println("+---------+-----------+-----+----------+");
+				System.out.println("| Roll.no | Name      | Age | Gender   |");
+				System.out.println("+---------+-----------+-----+----------+");
+				for (int i = 0; i < stud.size(); i++) {
+					System.out.println("| " + stud.get(i).getRollno() + "      | " + stud.get(i).getName()
+							+ "        | " + stud.get(i).getAge() + "  |  " + stud.get(i).getGender() + "       |");
+					System.out.println("+---------+-----------+-----+----------+");
+
+				}
+
 			}
 
 		} while (menuChoice < 3);
