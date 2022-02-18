@@ -1,40 +1,43 @@
+
 import java.util.*;
 
 public class Airtel {
 
-	static Stack<BackStack> backStack = new Stack<BackStack>();
+	static Stack<SelectedOptions> backStack = new Stack<SelectedOptions>();
 
 	public static void main(String args[]) {
 		for (String choice : getChoices(0, 0)) {
 			System.out.println(choice);
 		}
 		Scanner input = new Scanner(System.in);
+		// 1
 		System.out.println("Enter your option : ");
 		int choice = input.nextInt();
-		backStack.push(new BackStack(1, choice));
+		backStack.push(new SelectedOptions(1, choice));
 		print(1, choice);
 		System.out.println();
 		System.out.println("Stacktop" + backStack.peek().level);
 
-		System.out.println("Enter your option : ");
-		choice = input.nextInt();
-		backStack.push(new BackStack(2, choice));
-		print(2, choice);
-		/*for (String choiceString : getChoices(2, choice)) {
-			System.out.println(choiceString);
-		}*/
-		System.out.println("Enter your option : ");
-		choice = input.nextInt();
-		if (choice == 9) {
-			backStack.pop();
-			BackStack top = backStack.peek();
+		do {
+			System.out.println("Enter your option : ");
+			choice = input.nextInt();
+			if (choice == 9) {
+				backStack.pop();
+
+				if (backStack.isEmpty()) {
+					break;
+				}
+			} else {
+				backStack.push(new SelectedOptions(backStack.peek().level + 1, choice));
+			}
+			SelectedOptions top = backStack.peek();
 			print(top.level, top.choice);
-		} else {
-			backStack.push(new BackStack(3, choice));
-		}
+
+		} while (true);
 	}
 
 	private static void print(int level, int choice) {
+
 		for (String choiceString : getChoices(level, choice)) {
 			System.out.println(choiceString);
 		}
@@ -88,16 +91,28 @@ public class Airtel {
 				choiceList.add(NewOffers.OPTION_3.toString());
 				choiceList.add(NewOffers.OPTION_4.toString());
 				choiceList.add(NewOffers.OPTION_5.toString());
+				break;
+			}
+		} else if (level == 3) {
+			switch (choice) {
+			case 1:
+				System.out.println("Airtel Payments Bank Recharge Sucessfully");
+				System.out.println("9-Back");
+				break;
+			case 2:
+				System.out.println("Coupon Recharge Sucessfully ");
+				System.out.println("9-Back");
+				break;
 			}
 		}
 		return choiceList;
 	}
 
-	static class BackStack {
+	static class SelectedOptions {
 		private int level;
 		private int choice;
 
-		BackStack(int level, int choice) {
+		SelectedOptions(int level, int choice) {
 			this.level = level;
 			this.choice = choice;
 		}
