@@ -1,4 +1,5 @@
 
+
 import java.util.*;
 
 public class Airtel {
@@ -6,18 +7,10 @@ public class Airtel {
 	static Stack<SelectedOptions> backStack = new Stack<SelectedOptions>();
 
 	public static void main(String args[]) {
-		for (String choice : getChoices(0, 0)) {
-			System.out.println(choice);
-		}
+		int choice;
 		Scanner input = new Scanner(System.in);
-		// 1
-		System.out.println("Enter your option : ");
-		int choice = input.nextInt();
-		backStack.push(new SelectedOptions(1, choice));
-		print(1, choice);
-		System.out.println();
-		System.out.println("Stacktop" + backStack.peek().level);
-
+		backStack.push(new SelectedOptions(0, 0));
+		print(0, 0);
 		do {
 			System.out.println("Enter your option : ");
 			choice = input.nextInt();
@@ -29,11 +22,13 @@ public class Airtel {
 				}
 			} else {
 				backStack.push(new SelectedOptions(backStack.peek().level + 1, choice));
+
 			}
 			SelectedOptions top = backStack.peek();
 			print(top.level, top.choice);
 
-		} while (true);
+		} while (choice != 0);
+		System.out.println("Thank you for visiting our website...");
 	}
 
 	private static void print(int level, int choice) {
@@ -64,6 +59,8 @@ public class Airtel {
 				choiceList.add(Level3.OPTION_3.toString());
 				choiceList.add(Level3.OPTION_4.toString());
 				break;
+			default:
+				System.out.println("Please choose Correct Option");
 			}
 		} else if (level == 2) {
 			switch (choice) {
@@ -92,19 +89,14 @@ public class Airtel {
 				choiceList.add(NewOffers.OPTION_4.toString());
 				choiceList.add(NewOffers.OPTION_5.toString());
 				break;
+			default:
+				System.out.println("Please choose Correct Option");
 			}
 		} else if (level == 3) {
-			switch (choice) {
-			case 1:
-				System.out.println("Airtel Payments Bank Recharge Sucessfully");
-				System.out.println("9-Back");
-				break;
-			case 2:
-				System.out.println("Coupon Recharge Sucessfully ");
-				System.out.println("9-Back");
-				break;
-			}
+			System.out.println("Your Option set Sucessfully");
+			System.out.println("0-Exit");
 		}
+
 		return choiceList;
 	}
 
@@ -222,10 +214,8 @@ public class Airtel {
 	}
 
 	public enum NewOffers {
-		OPTION_1("1.Recharge of Rs INR265.00 is successful for your Airtel Mobile on 28-03-2022 "),
-		OPTION_2("2.Recharge of Rs INR479.00 is successful for your Airtel Mobile on 28-04-2022"),
-		OPTION_3("3.Recharge of Rs INR299.00 is successful for your Airtel Mobile on 28-03-2022 "),
-		OPTION_4("4.Recharge of Rs INR549.00 is successful for your Airtel Mobile on 28-04-2022 "), OPTION_5("5.Back");
+		OPTION_1("1.265=UL call+1GB/D,28D"), OPTION_2("2.479=UL call+1.5GB/D,56D"),
+		OPTION_3("3.299=UL call+1.5GB/D28D"), OPTION_4("4.549=UL call+25GB/D,56D"), OPTION_5("6.Back");
 
 		private final String text;
 
