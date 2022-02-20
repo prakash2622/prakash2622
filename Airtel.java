@@ -1,5 +1,4 @@
 
-
 import java.util.*;
 
 public class Airtel {
@@ -8,12 +7,12 @@ public class Airtel {
 
 	public static void main(String args[]) {
 		int choice;
-		Scanner input = new Scanner(System.in);
 		backStack.push(new SelectedOptions(0, 0));
 		print(0, 0);
 		do {
+			Scanner input = new Scanner(System.in);
 			System.out.println("Enter your option : ");
-			choice = input.nextInt();
+			 choice = input.nextInt();
 			if (choice == 9) {
 				backStack.pop();
 
