@@ -65,5 +65,11 @@ public class QueueDemo {
 		q.queueDisplay();
 		System.out.println("\n*************************");
 		q.peek();
+		System.out.println("\n");
+		for (int i = 1; i < q.MAX_SIZE - 1; i++) {
+			System.out.println("Deque element : " + q.dequeue());
+		}
+		System.out.println();
+		q.peek();
 	}
 }
