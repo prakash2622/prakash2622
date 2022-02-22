@@ -21,31 +21,49 @@ class QueueUsingArrays {
 	}
 
 	public void queueDisplay() {
-		for (int i = front; i < rear; i++) {
-			System.out.println(arr[i]);
+		if (front == rear) {
+			System.out.printf("Queue is Empty\n");
+			return;
 		}
+		for (int i = front; i < rear; i++) {
+			System.out.printf("%d ", arr[i]);
+		}
+	}
 
+	public void peek() {
+		if (front == rear) {
+			System.out.printf("Queue is Empty\n");
+			return;
+		}
+		System.out.printf("\nFront Element : %d", arr[front]);
+		return;
 	}
 }
 
 public class QueueDemo {
-	Scanner input = new Scanner(System.in);
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
 		QueueUsingArrays q = new QueueUsingArrays();
-		for (int i = 0; i < 2; i++) {
+		q.queueDisplay();
+		System.out.println();
+		for (int i = 1; i < q.MAX_SIZE - 2; i++) {
 			System.out.println("Enter the element");
 			q.enqueue(input.nextInt());
 		}
 		System.out.println("Deque element : " + q.dequeue());
+		System.out.println();
 		System.out.print("Print queue elements : ");
 		q.queueDisplay();
-		System.out.println("\n");
-		for (int i = 0; i < 3; i++) {
+		System.out.println("\n**********************");
+		for (int i = 1; i < q.MAX_SIZE - 1; i++) {
 			System.out.println("Enter the element");
 			q.enqueue(input.nextInt());
 		}
 		System.out.println("Deque element : " + q.dequeue());
-		System.out.print("Print queue elements :");
+		System.out.println();
+		System.out.print("Print queue elements : ");
 		q.queueDisplay();
-
+		System.out.println("\n*************************");
+		q.peek();
 	}
 }
