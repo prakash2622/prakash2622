@@ -29,26 +29,22 @@ class QueueUsingArrays {
 }
 
 public class QueueDemo {
-	public static void main(String args[]) {
-		Scanner input = new Scanner(System.in);
+	Scanner input = new Scanner(System.in);
 		QueueUsingArrays q = new QueueUsingArrays();
-		System.out.println("Enter the element");
-		q.enqueue(input.nextInt());
-		System.out.println("Enter the element");
-		q.enqueue(input.nextInt());
-		System.out.println("Deque element....");
-		System.out.println(q.dequeue());
-		System.out.println("Print queue elements...");
+		for (int i = 0; i < 2; i++) {
+			System.out.println("Enter the element");
+			q.enqueue(input.nextInt());
+		}
+		System.out.println("Deque element : " + q.dequeue());
+		System.out.print("Print queue elements : ");
 		q.queueDisplay();
-		System.out.println("Enter the element");
-		q.enqueue(input.nextInt());
-		System.out.println("Enter the element");
-		q.enqueue(input.nextInt());
-		System.out.println("Enter the element");
-		q.enqueue(input.nextInt());
-		System.out.println("Deque element....");
-		System.out.println(q.dequeue());
-		System.out.println("Print queue elements...");
+		System.out.println("\n");
+		for (int i = 0; i < 3; i++) {
+			System.out.println("Enter the element");
+			q.enqueue(input.nextInt());
+		}
+		System.out.println("Deque element : " + q.dequeue());
+		System.out.print("Print queue elements :");
 		q.queueDisplay();
 
 	}
