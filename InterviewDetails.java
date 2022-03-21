@@ -16,6 +16,10 @@ class Interview {
 			this.data = data;
 			this.next = null;
 		}
+
+		public void displaynode() {
+			System.out.println(data + " ");
+		}
 	}
 
 	public void enqueue(String data) {
@@ -36,10 +40,14 @@ class Interview {
 	}
 
 	public void queueDisplay() {
-		Node temp = front;
-		while (temp != null) {
-			System.out.println(temp.data);
-			temp = temp.next;
+		if (front == null) // no Node in Q
+			System.out.println("Queue is Empty");
+		else {
+			Node current = front;
+			while (current != null) {
+				current.displaynode();
+				current = current.next;
+			}
 		}
 	}
 
@@ -49,7 +57,7 @@ class Interview {
 
 	public String peek() {
 		if (front == null) // no Node in Q
-			throw new IndexOutOfBoundsException("Queue is Empty");
+			System.out.println("Queue is Empty");
 		return front.data;
 	}
 }
@@ -57,28 +65,37 @@ class Interview {
 public class InterviewDetails {
 	public static void main(String args[]) {
 		Interview person = new Interview();
-		int option;
 		Scanner input = new Scanner(System.in);
+
+		char ch;
 		do {
+			System.out.println("******************************************");
 			System.out.println("1.Insert a interview candidate..");
 			System.out.println("2.Candidate remove from interview room ");
-			System.out.println("3.Candidate waiting list");
+			System.out.println("3.Peek");
+			System.out.println("******************************************");
 			System.out.println("Enter your choice : ");
-			option = input.nextInt();
+			int option = input.nextInt();
 			switch (option) {
-			case 1: 
-				System.out.println("Enter a candidate");
+			case 1:
+				System.out.print("Enter a candidate : ");
+				input.nextLine();
 				person.enqueue(input.nextLine());
 				break;
-			case 2: 
-				System.out.println("remove candidate "+person.dequeue());
+			case 2:
+				System.out.println("remove candidate : " + person.dequeue());
 				break;
-			case 3: 
-				person.queueDisplay();
-				break;
+			case 3:
+				System.out.println("peek candidate : " + person.peek());
+			default:
+				System.out.println("Invalid option!!!check your option");
 			}
-			
-		} while (option!= 0);
-		System.out.println("Exit Successfully");
+			System.out.println("Display Candidate Waiting list :");
+			person.queueDisplay();
+
+			System.out.println("\nDo you want to continue (Type y or n)");
+			ch = input.next().charAt(0);
+		} while (ch == 'Y' || ch == 'y');
+		System.out.println("Thank you for...");
 	}
 }
