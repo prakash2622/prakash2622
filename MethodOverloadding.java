@@ -1,21 +1,23 @@
 
 public class MethodOverloadding {
-	static  String stuent(String n) {
+	static String student(String n) {
 		return n;
 	}
-	static int stuent(int x, int y) {
+
+	static int student(int x, int y) {
 		return x + y;
 	}
 
-	static double stuent(double x) {
+	static double student(double x) {
 		return x;
 	}
+
 	public static void main(String args[]) {
-		String n = stuent("Ram");
-		int num1 = stuent(48, 42);
-		double num2 = stuent(85);
-		System.out.println("Student name : "+n);
-		System.out.println("studentsMarks " + num1);
+
+		System.out.println("Student Name : " + MethodOverloadding.student("Ram"));
+		int num1 = student(48, 42);
+		double num2 = student(85.0);
+		System.out.println("studentMarks " + num1);
 		System.out.println("percentage " + num2);
 	}
 }
