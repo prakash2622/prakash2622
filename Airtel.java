@@ -7,6 +7,7 @@ public class Airtel {
 
 	public static void main(String args[]) {
 		int choice;
+		
 		backStack.push(new SelectedOptions(0, 0));
 		print(0, 0);
 		do {
@@ -20,9 +21,10 @@ public class Airtel {
 				if (backStack.isEmpty()) {
 					break;
 				}
-			} else if (choice == 22) {
-				backStack.push(new SelectedOptions(0, 0));
-			} else {
+			}  
+			else if(choice==22) {
+				backStack.push(new SelectedOptions(1, 1));
+			}else {
 				backStack.push(new SelectedOptions(backStack.peek().level + 1, choice));
 
 			}
@@ -73,6 +75,7 @@ public class Airtel {
 				choiceList.add(Recharge.OPTION_3.toString());
 				choiceList.add(Recharge.OPTION_4.toString());
 				choiceList.add(Recharge.OPTION_5.toString());
+				
 				break;
 			case 2:
 				choiceList.add(Caller_Tune.OPTION_1.toString());
@@ -154,7 +157,7 @@ public class Airtel {
 
 	public enum Level2 {
 		OPTION_1("1.Rechare"), OPTION_2("2.Caller_Tune"), OPTION_3("3.DTH"), OPTION_4("4.New Offers"),
-		OPTION_5("9-Back"), OPTION_6("0.Exit");
+		OPTION_5("9-Back"), OPTION_6("0.Exit"), OPTION_7("22-Main Menu");
 
 		private final String text;
 
@@ -183,7 +186,7 @@ public class Airtel {
 
 	public enum Recharge {
 		OPTION_1("1.Rechare through Airtel Payments Bank Account"), OPTION_2("2.Coupon Recharge"), OPTION_3("9.Back"),
-		OPTION_4("0.Exit"), OPTION_5("22-Main Menu");
+		OPTION_4("0.Exit"),OPTION_5("22-Main menu");
 
 		private final String text;
 
@@ -213,8 +216,7 @@ public class Airtel {
 
 	public enum Dth {
 		OPTION_1("1.Airtel DTH HD Plan Rs.251=49Channels+30D"), OPTION_2("2.Airtel DTH ₹ 285 Pack = 68 Channels+30D"),
-		OPTION_3("3.Airtel DTH ₹ 252 Pack = 78 Channels+30D"), OPTION_4("9.Back"), OPTION_5("0.Exit"),
-		OPTION_6("22-Main Menu");
+		OPTION_3("3.Airtel DTH ₹ 252 Pack = 78 Channels+30D"), OPTION_4("9.Back"), OPTION_5("0.Exit"),OPTION_6("22-Main menu");
 
 		private final String text;
 
@@ -230,7 +232,7 @@ public class Airtel {
 	public enum NewOffers {
 		OPTION_1("1.265=UL call+1GB/D,28D"), OPTION_2("2.479=UL call+1.5GB/D,56D"),
 		OPTION_3("3.299=UL call+1.5GB/D28D"), OPTION_4("4.549=UL call+25GB/D,56D"), OPTION_5("9.Back"),
-		OPTION_6("0.Exit"), OPTION_7("22-Main Menu");
+		OPTION_6("0.Exit"),OPTION_7("22-Main menu");
 
 		private final String text;
 

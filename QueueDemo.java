@@ -41,11 +41,13 @@ class QueueUsingArrays {
 }
 
 public class QueueDemo {
+
 	public static void main(String args[]) {
 		Scanner input = new Scanner(System.in);
 		QueueUsingArrays q = new QueueUsingArrays();
 		q.queueDisplay();
 		System.out.println();
+
 		for (int i = 1; i < q.MAX_SIZE - 2; i++) {
 			System.out.println("Enter the element");
 			q.enqueue(input.nextInt());
