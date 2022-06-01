@@ -1,0 +1,143 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.*"%>
+<%@page import="com.connection.DBConnection"%>
+<%@ page isErrorPage="true" %>
+
+
+<%
+Statement statement = DBConnection.SQLConnection().createStatement();
+ResultSet resultSet = null;
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="Index.css">
+<meta charset="UTF-8">
+<title>Reservation System</title>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="">Book Ticket</a></li>
+			<li><a href="Cancel.html">Cancel Ticket</a></li>
+			<li><a href="summary.html">Booking Summary</a></li>
+			
+			<li><button class='loginbtn'
+					onclick="document.getElementById('login-form').style.display='block'"
+					style="width: auto;">LOGIN</button></li>
+		</ul>
+	</nav>
+
+	<div id='login-form' class='login-page'>
+		<div class="form1">
+			<form action="Login.jsp"  method="post" onsubmit="return validate_Loginform(this)">
+			<a class="close" href="Index.jsp">x</a>
+			<div class="title1">Log in</div>
+			<br>
+			<div class="input-container ic1">
+				<input id="userid" class="input" type="text" placeholder=" "
+					name="userid" required autocomplete="off" />
+				<div class="cut"></div>
+				<label for="firstname" class="placeholder">User Id</label>
+			</div>
+			<div class="input-container ic2">
+				<input id="password" class="input" type="password" placeholder=" "
+					name="password" required autocomplete="off"/>
+				<div class="cut"></div>
+				<label for="pwd" class="placeholder">Password</label>
+			</div>
+			<br> <br>
+			<div class="Forgot-Password">
+				<a style="color: white" href="ForgetPassword.html">Forgot
+					Password</a>
+			</div>
+			<button class="submit" type="submit" value="login" name="signin">Sign In</button>
+			</form><br> <br> <br> <br>
+			<div class="new-user">
+				Not a Member ? : <a style="color: white" href="SignUp.html">Register
+					Here</a>
+			</div>
+		</div>
+	</div>
+	<script src="SignIn.js"></script>
+	<div class="form">
+		<div class="title">HOGWARTS EXPRESS</div>
+		<div class="subtitle">CHENNAI TO MADURAI</div>
+		<form name="myForm" onsubmit="return validateForm()"
+			action="seatavailability.jsp">
+			<div class="input-container ic1">
+				<%
+				try {
+					resultSet = statement.executeQuery(DBConnection.Stationlist());
+				%>
+				<input id="from" onchange="Getfromstationvalue()" list="fstation"
+					class="input" type="text" autocomplete=off placeholder=" "
+					name="from" required />
+				<div class="cut"></div>
+				<label for="firstname" class="placeholder">From</label>
+				<datalist id="fstation">
+					<%
+					while (resultSet.next()) {
+					%>
+					<option>
+						<%
+						out.print(resultSet.getString("StationName"));
+						%>
+					</option>
+					<%
+					}
+					%>
+				</datalist>
+			</div>	
+			<%
+			} catch (Exception e) {
+			e.printStackTrace();
+			}
+			%>
+			<%
+			try {
+				resultSet = statement.executeQuery(DBConnection.Stationlist());
+			%>
+			<div class="input-container ic2">
+				<input id="to" list="tstations" class="input" autocomplete="off"
+					type="text" placeholder=" " name="to" required />
+				<div class="cut"></div>
+				<label for="lastname" class="placeholder">To</label>
+				<datalist id="tstations">
+					<%
+					while (resultSet.next()) {
+					%>
+					<option>
+						<%
+						out.print(resultSet.getString("StationName"));
+						%>
+					</option>
+					<%
+					}
+					%>
+				</datalist>
+			</div>
+			<%
+			} catch (Exception e) {
+			e.printStackTrace();
+			}
+			%>
+
+			<p id="alert" style="color: red;"></p>
+			<div class="input-container ic2">
+				<input id="mindate" class="input" autocomplete="off" type="date"
+					placeholder=" " name="date" required />
+				<div class="cut cut-short"></div>
+				<label for="date" class="placeholder">Date</label>
+			</div>
+			<button class="submit">Check Availability</button>
+		</form>
+
+	</div>
+
+</body>
+</html>
