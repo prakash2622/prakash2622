@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="test.css">
+</head>
+
+<body>
+  <div class="nav">
+    <div class="nav-header">
+      <div class="nav-title">
+        ConMon
+      </div>
+    </div>
+    <div class="nav-clock" id="clock"></div>
+    </div>
+    <script type="text/javascript">
+      function refreshTime() {
+        const timeDisplay = document.getElementById("clock");
+        const dateString = new Date().toLocaleString();
+        const formattedString = dateString.replace(", ", " , ");
+        timeDisplay.textContent = formattedString;
+      }
+      setInterval(refreshTime, 1000);
+    </script>
+
+  <nav class="sidebar close">
+    <div class="menu-bar">
+      <div class="menu">
+        <ul class="menu-links">
+          <li class="nav-link">
+            <a href="#">
+              <i><img src="./Icons/icons8-squared-menu-24.svg"></i></i>
+              <span class="text nav-text">Dashboard</span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a href="#">
+              <i><img src="./Icons/icons8-flash-on-50.svg"></i>
+              <span class="text nav-text">Flash</span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a href="#">
+              <i><img src="./Icons/icons8-adjust-50.svg"></i>
+              <span class="text nav-text">Controls</span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a href="#">
+              <i><img src="./Icons/icons8-activity-64.svg"></i>
+              <span class="text nav-text">Activity</span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a href="#">
+              <i><img src="./Icons/icons8-decline-100.svg"></i>
+              <span class="text nav-text">Negative Activity</span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a href="#">
+              <i><img src="./Icons/icons8-value-64.svg"></i></i>
+              <span class="text nav-text">Assests</span>
+            </a>
+          </li>
+          <li class="nav-link">
+            <a href="#">
+              <i><img src="./Icons/icons8-risk-60.svg"></i>
+              <span class="text nav-text">Risks</span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a href="#">
+              <i> <img src="./Icons/icons8-enhancement-50.svg"></i>
+              <span class="text nav-text">Enhancements</span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a href="#">
+              <i><img src="./Icons/icons8-event-64.svg"></i>
+              <span class="text nav-text">Events</span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a href="#">
+              <i><img src="./Icons/icons8-alert-64.svg"></i>
+              <span class="text nav-text">Alerts</span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a href="#">
+              <i><img src="./Icons/icons8-incident-64.svg"></i>
+              <span class="text nav-text">Incidents</span>
+            </a>
+          </li>
+          <li class="nav-link">
+            <a href="#">
+              <i><img src="./Icons/icons8-attack-67.svg"></i>
+              <span class="text nav-text">Attacks</span>
+            </a>
+          </li>
+          <li class="nav-link">
+            <a href="#">
+              <i><img src="./Icons/icons8-guard-64.svg"></i>
+              <span class="text nav-text">Mitigations</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- <div class="bottom-content">
+        <li class="">
+          <a href="#">
+            <i class='bx bx-log-out icon'></i>
+            <span class="text nav-text">Logout</span>
+          </a>
+        </li> -->
+
+        <!-- <li class="mode">
+          <div class="sun-moon">
+            <i class='bx bx-moon icon moon'></i>
+            <i class='bx bx-sun icon sun'></i>
+          </div>
+          <span class="mode-text text">Dark mode</span>
+
+          <div class="toggle-switch">
+            <span class="switch"></span>
+          </div>
+        </li> -->
+
+      </div>
+    </div>
+
+  </nav>
+<!-- 
+  <script>
+    const body = document.querySelector('body'),
+      sidebar = body.querySelector('nav'),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector(".mode-text");
+    toggle.addEventListener("click", () => {
+      sidebar.classList.toggle("close");
+    })
+    searchBtn.addEventListener("click", () => {
+      sidebar.classList.remove("close");
+    })
+    modeSwitch.addEventListener("click", () => {
+      body.classList.toggle("dark");
+      if (body.classList.contains("dark")) {
+        modeText.innerText = "Light mode";
+      } else {
+        modeText.innerText = "Dark mode";
+      }
+    });
+  </script> -->
+
+</body>
+
+</html>

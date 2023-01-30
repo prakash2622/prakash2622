@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="example.css">
+</head>
+<body> 
+    <nav  class="sidebar">
+        <ul class="nav-list"> 
+           <br>
+           <br>
+           <br>
+           <li>
+            <a href="#" class="logo">
+              <i><img src="./Icons/icons8-squared-menu-24.svg"></i>
+              <span class="link_name">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="logo">
+              <i><img src="./Icons/icons8-flash-on-50.svg"></i>
+              <span class="link_name">Flash</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="logo">
+              <i><img src="./Icons/icons8-adjust-50.svg"></i>
+              <span class="link_name">Controls</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="logo">
+              <i><img src="./Icons/icons8-activity-64.svg"></i>
+              <span class="link_name">Activity</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="logo">
+              <i><img src="./Icons/icons8-decline-100.svg"></i>
+              <span class="link_name">Negative Activity</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="logo">
+              <i><img src="./Icons/icons8-value-64.svg"></i>
+              <span class="link_name">Assests</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="logo">
+              <i><img src="./Icons/icons8-risk-60.svg"></i>
+              <span class="link_name">Risks</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="logo">
+              <i><img src="./Icons/icons8-enhancement-50.svg"></i>
+              <span class="link_name">Enhancements</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="logo">
+              <i><img src="./Icons/icons8-event-64.svg"></i>
+              <span class="link_name">Events</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="logo">
+              <i><img src="./Icons/icons8-alert-64.svg"></i>
+              <span class="link_name">Alerts</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="logo">
+              <i><img src="./Icons/icons8-incident-64.svg"></i>
+              <span class="link_name">Incidents</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="logo">
+              <i><img src="./Icons/icons8-attack-67.svg"></i>
+              <span class="link_name">Attacks</span>
+            </a>
+     
+          </li>
+          <li>
+            <a href="#" class="logo">
+              <i><img src="./Icons/icons8-guard-64.svg"></i>
+              <span class="link_name">Mitigations</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+  <div class="nav">
+    <div class="nav-header">
+      <div class="nav-title">
+        ConMon
+      </div>
+    </div>
+    <div class="nav-clock" id="clock"></div>
+    </div>
+
+<script type="text/javascript">
+  function refreshTime() {
+    const timeDisplay = document.getElementById("clock");
+    const dateString = new Date().toLocaleString();
+    const formattedString = dateString.replace(", ", " , ");
+    timeDisplay.textContent = formattedString;
+  }
+  setInterval(refreshTime, 1000);
+</script>
+</body>
+</html>
